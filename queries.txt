@@ -1,0 +1,57 @@
+Here are couple of queries which we need while testing in graphiQl
+
+// Querying authors json
+{
+  authors {
+    name
+    id
+  }
+}
+
+// Querying authors json along with books of those authors
+{
+  authors {
+    name
+    id
+    books {
+      name
+    }
+  }
+}
+
+// Querying books json
+{
+  books {
+    id
+    name
+    authorId
+  }
+}
+
+// Querying books json along with author of books
+{
+  books {
+    id
+    name
+    authorId
+    author {
+      name
+    }
+  }
+}
+
+// adding new author - to verfiy if its added, query the authors json 
+mutation {
+  addAuthor(name: "new author") {
+    id
+    name
+  }
+}
+
+// adding new book - to verfiy if its added, query the books json 
+mutation {
+  addBook(name: "new book", authorId: 2) {
+    id
+    name
+  }
+}
